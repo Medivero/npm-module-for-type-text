@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-export function useTypeNamesLikeAKeyboard(names,setName){
+export function useTypeNamesLikeAKeyboard(names,setName, getinter){
+    let interval = 0;
+    if (getinter == undefined || getinter == null){
+        interval = 100;
+    }
+    else{
+        interval = getinter;
+    }
     const [nameIndex, setNameIndex] = useState(0);
     useEffect(() => {
     let direction = 1;
@@ -17,7 +24,7 @@ export function useTypeNamesLikeAKeyboard(names,setName){
             }
             setName(name.slice(0,index));
             index+=direction;
-        },100);
+        },interval);
         return () => {
             clearInterval(timer);
         }
