@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-export function useTypeNamesLikeAKeyboard({names,setName, getinter}:{names:Array<String>,setName:Function,getinter:any}){
+export function useTypeNamesLikeAKeyboard(names:Array<String>,setName:Function, getinter:number){
     let interval = 0;
     
     if (getinter == undefined || getinter == null){
